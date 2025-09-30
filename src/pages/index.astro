@@ -22,33 +22,33 @@ const projects = (await getCollection('work'))
 // https://docs.astro.build/basics/astro-components/
 ---
 
-<BaseLayout>
+<BaseLayout title='Home - Sam Kerr'>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
+					title="Sam Kerr"
+					tagline="Senior Software Engineer"
 					align="start"
 				>
-					<div class="roles">
+					<!-- <div class="roles">
 						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
 						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
 						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
-					</div>
+					</div> -->
 				</Hero>
 
 				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+					alt="Professional picture of Sam Kerr"
 					width="480"
 					height="620"
-					src="/assets/portrait.jpg"
+					src="/assets/sam-ghibli-cropped.png"
 				/>
 			</header>
 
-			<Skills />
+			<!-- <Skills /> -->
 		</div>
-
+<!-- 
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
@@ -97,9 +97,9 @@ const projects = (await getCollection('work'))
 					</Grid>
 				</div>
 			</section>
-		</main>
+		</main> -->
 
-		<ContactCTA />
+		<!-- <ContactCTA /> -->
 	</div>
 </BaseLayout>
 
