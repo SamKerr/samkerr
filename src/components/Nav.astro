@@ -6,8 +6,9 @@ import ThemeToggle from './ThemeToggle.astro';
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
-	{ label: 'CV', href: '/cv/' },
+	{ label: 'Projects', href: '/projects/' },
 	{ label: 'Blog', href: '/blog/' },
+	{ label: 'CV', href: '/cv/' },
 ];
 
 /** Test if a link is pointing to the current page. */
@@ -123,7 +124,8 @@ const isCurrentPage = (href: string) => {
 	.menu-header {
 		display: flex;
 		justify-content: space-between;
-		gap: 0.5rem;
+		flex-wrap: nowrap;
+		gap: 1rem;
 		padding: 1.5rem;
 	}
 
@@ -201,6 +203,7 @@ const isCurrentPage = (href: string) => {
 		--icon-size: var(--text-xl);
 		--icon-padding: 0.5rem;
 
+		min-width: 100%;
 		display: flex;
 		justify-content: space-between;
 		gap: 0.75rem;
@@ -212,7 +215,8 @@ const isCurrentPage = (href: string) => {
 
 	.socials {
 		display: flex;
-		flex-wrap: wrap;
+		min-width: 100%;
+		flex-wrap: nowrap;
 		gap: 0.625rem;
 		font-size: var(--icon-size);
 	}
@@ -298,8 +302,8 @@ const isCurrentPage = (href: string) => {
 
 		.menu-footer {
 			--icon-padding: 0.375rem;
-
-			justify-self: flex-end;
+			min-width: 100%;
+			justify-content: center;
 			align-items: center;
 			padding: 0;
 			background-color: transparent;
@@ -307,7 +311,8 @@ const isCurrentPage = (href: string) => {
 		}
 
 		.socials {
-			display: none;
+			min-width: 100%;
+			flex-wrap: nowrap;
 		}
 	}
 
@@ -316,6 +321,8 @@ const isCurrentPage = (href: string) => {
 			display: flex;
 			justify-content: flex-end;
 			gap: 0;
+			min-width: 100%
+			flex-wrap: nowrap;
 		}
 	}
 	@media (forced-colors: active) {
