@@ -8,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const projects = (await getCollection('blog')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
+).filter((p) => p.data.public);
 ---
 
 <BaseLayout
@@ -19,19 +19,44 @@ const projects = (await getCollection('blog')).sort(
 		<main class="wrapper stack gap-8">
 			<Hero
 				title=""
-				tagline="See my most recent projects below to get an idea of my past experience."
+				tagline=""
 				align="start"
 			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
+			{projects.length > 0 ? 
+				<Grid variant="offset">
+					{
+						projects.map((project) => (
+							<li>
+								<PortfolioPreview project={project} />
+							</li>
+						)) 
+					}
+				</Grid> : 
+					<div class="no-posts-container">
+									<img src='/public/assets/tumbleweed-2.gif' alt='tumbleweed rolling by' loading="lazy" decoding="async" />
+									<p>No blog posts published... yet!</p>
+					</div>
+			}
+
 		</main>
 		<!-- <ContactCTA /> -->
 	</div>
 </BaseLayout>
+
+<style>
+	.no-posts-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		gap: 1rem;
+		padding: 4rem 0;
+	}
+
+	.no-posts-container img {
+		width: 150px;
+		height: auto;
+		border-radius: 0.5rem;
+		box-shadow: var(--shadow-md);
+	}
